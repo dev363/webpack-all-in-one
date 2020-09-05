@@ -1,12 +1,9 @@
-In this Branch Add Style to elements with Css, Scss files
+In this Section you not need t create `index.html` manually. this is creating automatically with plugin
 
 # What is new in this Branch
 1) Install new Packages given below
 
-`"style-loader": "^1.2.1",
-"css-loader": "^4.2.2",
-"node-sass": "^4.14.1",
-"sass-loader": "^10.0.2"`
+` "html-webpack-plugin"`
 
 # Install Step
 
