@@ -2,20 +2,25 @@ const path = require('path');
 
 module.exports = {
     mode:'development',
-    entry: './src/home',  // Create default name `main.js` in dist/ folder if not define output
-
-    /* Craete same filename for build into by default dist/ folder */
-    // output:{
-    //     filename:'bundle.js',
-    // } 
-    
-    /** For multiple path entry and outputs */
     entry:{
-        home:path.resolve(__dirname,'src/home'),
-        vendor:path.resolve(__dirname,'src/vendor')
+        home:path.resolve(__dirname,'src/home')
     },
     output:{
         path:path.resolve(__dirname,'dist'),
-        filename: '[name].bundle.js'
+        filename: 'bundle.js'
+    },
+    module:{
+        rules:[
+            {
+                // test:/\.css$/,
+                test:/\.(s*)css$/,  // Forh both Css, Scss files
+                // use:['style-loader','css-loader','sass-loader']
+                use: [
+                    {loader:'style-loader'},
+                    {loader:'css-loader'},
+                    {loader:'sass-loader'}
+                ]
+            },
+        ]
     }
   };

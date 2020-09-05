@@ -1,0 +1,14 @@
+/* Define standard variables and values for website */
+$bgcolor:#734545;
+$textcolor: darkblue;
+$fontsize: 18px;
+
+body {
+    
+    margin: 0px;
+    padding:0px;
+    text-align: center;
+    background-color: $bgcolor;
+    color: $textcolor;
+    font-size: $fontsize;
+}
