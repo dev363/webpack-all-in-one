@@ -1,33 +1,21 @@
-const { mode } = require("webpack-nano/argv");
-const {
-  MiniHtmlWebpackPlugin,
-} = require("mini-html-webpack-plugin");
-const { WebpackPluginServe } = require("webpack-plugin-serve");
+const path = require('path');
 
 module.exports = {
-  watch: mode === "development",
-  entry: "./src",
-  mode,
-  plugins: [
-    new MiniHtmlWebpackPlugin({
-      context: {
-        title: "Webpack demo",
-      },
-    }),
-    new WebpackPluginServe({
-      port: process.env.PORT || 8080,
-      static: "./dist",
-      liveReload: true,
-      waitForBuild: true,
-    }),
-  ],
-  watchOptions: {
-    // Delay the rebuild after the first change
-    aggregateTimeout: 300,
+    mode:'development',
+    entry: './src/home',  // Create default name `main.js` in dist/ folder if not define output
 
-    // Poll using interval (in ms, accepts boolean too)
-    poll: 1000,
-    // Ignore node_modules to decrease CPU usage
-    ignored: /node_modules/,
-  }
-};
+    /* Craete same filename for build into by default dist/ folder */
+    // output:{
+    //     filename:'bundle.js',
+    // } 
+    
+    /** For multiple path entry and outputs */
+    entry:{
+        home:path.resolve(__dirname,'src/home'),
+        vendor:path.resolve(__dirname,'src/vendor')
+    },
+    output:{
+        path:path.resolve(__dirname,'dist'),
+        filename: '[name].bundle.js'
+    }
+  };
