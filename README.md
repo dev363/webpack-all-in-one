@@ -1,9 +1,15 @@
-In this Section you not need t create `index.html` manually. this is creating automatically with plugin
+In this section use Html loader, file loader to excute Html template website
+Use `wepack-dev-server` to hota reload for in development mode to check code
 
 # What is new in this Branch
 1) Install new Packages given below
 
-` "html-webpack-plugin"`
+`"@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "file-loader": "^6.1.0",
+    "html-loader": "^1.3.0",
+    "webpack-dev-server": "^3.11.0"`
 
 # Install Step
 

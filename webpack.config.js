@@ -5,14 +5,22 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode:'development',
     entry:{
-        home:path.resolve(__dirname,'src/home')
+        home:path.resolve(__dirname,'src/')
     },
     output:{
         path:path.resolve(__dirname,'dist'),
         filename: 'bundle.js'
     },
+    devServer: {
+        contentBase: './dist',
+        port: 3001
+    },
     module:{
         rules:[
+            {
+                test:/\.js$/,
+                use:['babel-loader']
+            },
             {
                 test:/\.(s*)css$/,
                 use: [
@@ -21,13 +29,28 @@ module.exports = {
                     {loader:'sass-loader'}
                 ]
             },
+            {
+                test: /\.html$/,
+                use: ['html-loader']
+            },
+            {
+                test: /\.(jpg|png)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'img/',
+                            publicPath: 'img/'
+                        }
+                    }
+                ]
+            }
         ]
     },
     plugins: [
-        // new HtmlWebpackPlugin()
         new HtmlWebpackPlugin({
-            title: 'My App',
-            filename: 'index.html'
-          })
+            template: 'src/index.html'
+        })
     ]
   };
