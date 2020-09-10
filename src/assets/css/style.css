@@ -1,4 +1,4 @@
-button {
+button5 {
     width: 100px;
     height: 35px;
     margin-top: 50px;
@@ -7,7 +7,9 @@ button {
     border-radius: 3px;
     box-shadow: 0px 6px 6px grey;
 }
-
-img {
-    width: 150px;
+.row.p-15 {
+    padding: 15px;
+}
+.bannerImg {
+    height: 275px;
 }

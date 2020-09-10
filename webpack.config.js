@@ -18,9 +18,15 @@ module.exports = {
     module:{
         rules:[
             {
-                test:/\.js$/,
-                use:['babel-loader']
-            },
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: ['@babel/preset-env']
+                  }
+                }
+              },
             {
                 test:/\.(s*)css$/,
                 use: [
@@ -34,7 +40,7 @@ module.exports = {
                 use: ['html-loader']
             },
             {
-                test: /\.(jpg|png)$/,
+                test: /\.(jpg|png|svg)$/,
                 use: [
                     {
                         loader: 'file-loader',
